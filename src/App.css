@@ -22,6 +22,21 @@ body {
   margin-bottom: 30px;
 }
 
+.tarefaSingle {
+  font-size: 15px;
+  padding: 8px 10px;
+  border-bottom: 2px dotted #ccc;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+
+
+.tarefaSingle span {
+  cursor: pointer;
+}
+
 .boxTarefas p{
   cursor: pointer;
   font-size: 15px;
@@ -41,8 +56,9 @@ body {
   color: whitesmoke;
   text-align: center;
   font-size: 40px;
-  line-height: 50px;
+  line-height: 42px;
   vertical-align: middle; 
+  justify-content: center
 }
 
 .modal {
@@ -57,10 +73,53 @@ body {
 
 .modalContent{
   max-width: 600px;
-  padding: 40px 20px;
+  padding: 40px 28px;
   background-color:  whitesmoke;
   position: absolute;
   left: 50%;
   top: 50%;
   transform: translate(-50%,-50%);
+  
+}
+
+.modalContent h3 {
+  text-align: center;
+  display: block;
+  margin-bottom: 1.8rem;
+}
+
+#content-tarefa {
+  padding: 4px 6px;
+  border: 2px whitesmoke;
+  background-color: whitesmoke;
+  
+}
+
+.save {
+  background-color: #adadad;
+  color: whitesmoke;
+  padding: 4px 9px;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+
+}
+
+@media screen and (max-width: 900px) {
+  .addTarefa {
+    position: fixed;
+    right: 10px;
+    bottom: 10px;
+    background-color: #4682B4;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    border-radius: 25px;
+    color: whitesmoke;
+    text-align: center;
+    font-size: 40px;
+    line-height: 50px;
+    vertical-align: middle; 
+    justify-content: center
+  } 
 }

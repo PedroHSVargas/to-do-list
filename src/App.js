@@ -51,6 +51,16 @@ function App() {
         setModal(!modal);
   };
 
+  const deletarTarefa = (id) => {
+    let novasTarefas = tarefas.filter(function(val){
+      if(val.id != id){
+        return val;
+      }
+
+  })
+  setarTarefas(novasTarefas)
+  }
+
   useEffect(() =>{
     //Fazer uma chamada para API e preencher o estado tarefas.
     if(window.localStorage.getItem('tarefas',) != undefined){
@@ -67,8 +77,8 @@ function App() {
         <div className='modal'>
           <div className='modalContent'>
             <h3>Adicionar sua tarefa</h3>
-            <input id="content-tarefa" type="text" />
-            <button onClick={()=>salvarTarefa()}>Salvar!</button>
+            <input placeholder="Digite sua tarefa" id="content-tarefa" type="text" />
+            <button onClick={()=>salvarTarefa()} className="save">  Salvar!</button>
           </div>
         </div>
         :
@@ -81,11 +91,17 @@ function App() {
           tarefas.map((val) => {
             if(!val.finalizada){
               return (
-                <p onClick={()=>marcarConcluida(val.id)}>{val.tarefa}</p>
+                <div className='tarefaSingle'>
+                  <p onClick={()=>marcarConcluida(val.id)}>{val.tarefa} </p>
+                  <span onClick={()=>deletarTarefa(val.id)} style={{color: 'red'}}>(x)</span>
+                </div>
               );
             }else{
               return(
-                <p onClick={()=>marcarConcluida(val.id)} style={{textDecoration: 'line-through'}}>{val.tarefa}</p>
+                <div className='tarefaSingle'>
+                  <p onClick={()=>marcarConcluida(val.id)} style={{textDecoration: 'line-through'}}>{val.tarefa} </p>
+                  <span onClick={()=>deletarTarefa(val.id)} style={{color: 'red'}}>(x)</span>
+                </div>  
               );
             }
           })
